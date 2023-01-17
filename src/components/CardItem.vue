@@ -1,12 +1,11 @@
 <script setup lang="ts">
-defineProps<{ data: object }>()
+defineProps<{ title: string, body: string }>()
 
 </script>
 
 <template>
     <div class="card">
-        <h3>{{ data.title }}</h3>
-        <p>{{ data.body }}</p>
+        <slot></slot>
     </div>
 </template>
 
