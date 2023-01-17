@@ -3,12 +3,11 @@
 </script>
         
 <template>
-    <img class="logo-deloitte" src="https://logodownload.org/wp-content/uploads/2019/10/deloitte-logo.png" />
+    <img src="https://www2.deloitte.com/content/dam/assets/logos/deloitte.svg" />
 </template>
 
 <style scoped lang="scss">
-img.logo-deloitte {
+img {
     width:100%; 
-    max-width:12em;
 }
 </style>
