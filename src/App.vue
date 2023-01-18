@@ -1,28 +1,34 @@
 <script setup lang="ts">
 import PageHeader from './components/PageHeader.vue'
 import InfiniteScroll from './components/InfiniteScroll.vue';
-import Grid from './components/Grid.vue'
+import ItemList from './components/ItemList.vue'
 import PostsAPI from './api/resources/Posts.js'
 import { ref } from 'vue';
+import IconLoading from './components/IconLoading.vue';
 
-const posts = ref([])
+// options
+let isGrid:boolean = true
+
+// exposed call-api
+let posts = ref([])
 const loadPosts = async(page, per_page) => {
   console.log('loadPosts(', page, per_page, ')')
-  let data = await PostsAPI.index(page, per_page)
-  posts.value = posts.value.concat(data)
+  posts.value = posts.value.concat(await PostsAPI.index(page, per_page))
 };
 </script>
 
 <template>
   <PageHeader />
   <InfiniteScroll :callback="loadPosts" :per_page="20">
-    <Grid :items="posts" />
-    <loading>
-      Aguarde...
+    <ItemList :items="posts" :isGrid="isGrid"/>
+    <loading class="loading">
+      <IconLoading />
     </loading>
   </InfiniteScroll>
 </template>
 
 <style scoped>
-
+.loading {
+    margin: 2em auto;
+}
 </style>
