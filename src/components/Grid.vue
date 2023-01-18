@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CardItem from './CardItem.vue';
+import Card from './Card.vue';
 import { defineProps } from 'vue';
 
 defineProps<{ items: object }>()
@@ -7,11 +7,11 @@ defineProps<{ items: object }>()
 
 <template>
     <div class="cards">
-        <CardItem :id="`card_${index}`" v-for="(item, index) in items">            
+        <Card :id="`card_${index}`" v-for="(item, index) in items">
             <h3>{{ item[`title`] }}</h3>
             <p>{{ item[`body`] }}</p>
             <small>{{ index + 1 }}</small>
-        </CardItem>
+        </Card>
     </div>
 </template>
 
