@@ -27,8 +27,15 @@ const loadPosts = async(page, per_page) => {
   </InfiniteScroll>
 </template>
 
-<style scoped>
+<style>
+body {
+  place-items: start;
+}
+header {
+  padding: 2em 0;
+}
 .loading {
-    margin: 2em auto;
+  display: flex;
+  margin: 2em auto;
 }
 </style>
